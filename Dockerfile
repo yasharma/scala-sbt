@@ -10,15 +10,14 @@ FROM  openjdk:8-jre-alpine
 ENV SCALA_VERSION 2.12.1
 ENV SBT_VERSION 0.13.15
 
-# Scala expects this file
-RUN touch /usr/lib/jvm/java-1.8-openjdk/jre/release
-
-# Install Scala
-## Piping curl directly in tar
 RUN \
-  curl -fsL http://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /root/ && \
-  echo >> /root/.bashrc && \
-  echo 'export PATH=~/scala-$SCALA_VERSION/bin:$PATH' >> /root/.bashrc
+  touch /usr/lib/jvm/java-1.8-openjdk/jre/release && \
+  apk add --no-cache bash && \
+  apk add --no-cache curl && \
+  curl -fsL http://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /usr/local && \
+  ln -s /usr/local/scala-2.12.1/bin/* /usr/local/bin/ && \
+  scala -version && \
+  scalac -version
 
 # Install sbt
 RUN \
