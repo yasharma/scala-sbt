@@ -35,6 +35,6 @@ Contributions via GitHub pull requests are gladly accepted from their original a
 
 ## License ##
 
-This code is open source software licensed under the [Apache 2.0 License]("http://www.apache.org/licenses/LICENSE-2.0.html").
+This code is open source software licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).
 
-This is forked repository with optimisations on top of original [hseeberger/scala-sbt]("https://github.com/hseeberger/scala-sbt").
+This is forked repository with optimisations on top of original [hseeberger/scala-sbt](https://github.com/hseeberger/scala-sbt).
