@@ -5,13 +5,13 @@
 #
 
 # Pull base image
-FROM  openjdk:8
+FROM  openjdk:8-jre-alpine
 
 ENV SCALA_VERSION 2.12.1
 ENV SBT_VERSION 0.13.15
 
 # Scala expects this file
-RUN touch /usr/lib/jvm/java-8-openjdk-amd64/release
+RUN touch /usr/lib/jvm/java-1.8-openjdk/jre/release
 
 # Install Scala
 ## Piping curl directly in tar
