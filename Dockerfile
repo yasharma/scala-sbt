@@ -1,7 +1,7 @@
 #
 # Scala and sbt Dockerfile
 #
-# https://github.com/hseeberger/scala-sbt
+# https://github.com/spikerlabs/scala-sbt (based on https://github.com/hseeberger/scala-sbt)
 #
 
 # Pull base image
