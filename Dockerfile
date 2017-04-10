@@ -19,14 +19,8 @@ RUN \
   scala -version && \
   scalac -version
 
-# Install sbt
 RUN \
-  curl -L -o sbt-$SBT_VERSION.deb http://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
-  dpkg -i sbt-$SBT_VERSION.deb && \
-  rm sbt-$SBT_VERSION.deb && \
-  apt-get update && \
-  apt-get install sbt && \
-  sbt sbtVersion
+  curl -fsL http://dl.bintray.com/sbt/native-packages/sbt/0.13.15/sbt-0.13.15.tgz | tar xfz - -C /usr/local && \
+  ln -s /usr/local/sbt/bin/* /usr/local/bin/ && \
+  sbt sbt-version
 
-# Define working directory
-WORKDIR /root
