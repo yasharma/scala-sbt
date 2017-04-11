@@ -1,6 +1,8 @@
 # Scala and sbt Dockerfile
 
-This repository contains **Dockerfile** of [Scala](http://www.scala-lang.org) and [sbt](http://www.scala-sbt.org).
+[Scala](http://www.scala-lang.org) and [sbt](http://www.scala-sbt.org) container.
+
+Useful for building in environments like CircleCI v2.
 
 
 ## Base Docker Image ##
@@ -12,19 +14,23 @@ This repository contains **Dockerfile** of [Scala](http://www.scala-lang.org) an
 
 1. Install [Docker](https://www.docker.com)
 2. Pull [automated build](https://hub.docker.com/r/spikerlabs/scala-sbt/) from public [Docker Hub Registry](https://hub.docker.com):
+3. See [tags](https://hub.docker.com/r/spikerlabs/scala-sbt/tags/) for built specific versions (not the latest ones)
 ```
 docker pull spikerlabs/scala-sbt
 ```
 Alternatively, you can build an image from Dockerfile:
 ```
-docker build -t spikerlabs/scala-sbt github.com/spikerlabs/scala-sbt
+docker build -t scala-sbt github.com/spikerlabs/scala-sbt
 ```
-
+Or with specific versions:
+```
+docker build -t scala-sbt --build-arg SCALA_VERSION=2.12.1 --build-arg SBT-VERSION=0.13.15 github.com/spikerlabs/scala-sbt
+```
 
 ## Usage ##
 
 ```
-docker run -it --rm spikerlabs/scala-sbt
+docker run -it --rm spikerlabs/scala-sbt /bin/bash
 ```
 
 
