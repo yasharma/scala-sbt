@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 scala_versions=(
-  2.11.8
-  2.12.1
+  2.11.11
+  2.12.2
 )
 sbt_versions=(
   0.13.12
