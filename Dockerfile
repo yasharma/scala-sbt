@@ -5,7 +5,7 @@
 #
 
 # Pull base image
-FROM  openjdk:12-alpine
+FROM  openjdk:8-jre-alpine
 
 ARG SCALA_VERSION
 ARG SBT_VERSION
