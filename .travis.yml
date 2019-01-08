@@ -1,7 +1,7 @@
 language: scala
 services:
   - docker
-before_install:
+after_success:
   - docker build -t ls12styler/scala-sbt:latest .
 script:
     - scala --version
