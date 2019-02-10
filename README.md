@@ -4,6 +4,7 @@
 
 Useful for building in environments like CircleCI v2.
 
+Build: [![Build Status](https://travis-ci.org/ls12styler/scala-sbt.svg?branch=master)](https://travis-ci.org/ls12styler/scala-sbt)
 
 ## Base Docker Image ##
 
@@ -13,24 +14,32 @@ Useful for building in environments like CircleCI v2.
 ## Installation ##
 
 1. Install [Docker](https://www.docker.com)
-2. Pull [automated build](https://hub.docker.com/r/spikerlabs/scala-sbt/) from public [Docker Hub Registry](https://hub.docker.com):
-3. See [tags](https://hub.docker.com/r/spikerlabs/scala-sbt/tags/) for built specific versions (not the latest ones)
+2. Pull [automated build](https://hub.docker.com/r/ls12styler/scala-sbt/) from public [Docker Hub Registry](https://hub.docker.com):
+3. See [tags](https://hub.docker.com/r/ls12styler/scala-sbt/tags/) for built specific versions (not the latest ones)
 ```
-docker pull spikerlabs/scala-sbt
+docker pull ls12styler/scala-sbt
 ```
 Alternatively, you can build an image from Dockerfile:
 ```
-docker build -t scala-sbt github.com/spikerlabs/scala-sbt
+docker build -t scala-sbt github.com/ls12styler/scala-sbt
 ```
 Or with specific versions:
 ```
-docker build -t scala-sbt --build-arg SCALA_VERSION=2.12.7 --build-arg SBT_VERSION=1.2.6 github.com/spikerlabs/scala-sbt
+docker build -t scala-sbt --build-arg SCALA_VERSION=2.12.7 --build-arg SBT_VERSION=1.2.6 github.com/ls12styler/scala-sbt
 ```
 
 ## Usage ##
 
 ```
-docker run -it --rm spikerlabs/scala-sbt /bin/bash
+docker run -it --rm ls12styler/scala-sbt /bin/bash
+```
+
+## SBT Console ##
+
+Omitting the entrypoint will act as though you ran `sbt` in your project directly and will land you in the SBT Console. You will also need to include your project directory as a bind mount on the container under the path `/project`.
+
+```
+docker run -it --rm -v `pwd`:/project ls12styler/scala-sbt
 ```
 
 
