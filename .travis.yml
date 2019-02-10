@@ -6,7 +6,7 @@ after_success:
 - docker run --rm ls12styler/scala-sbt scala -version
 - docker run --rm ls12styler/scala-sbt sbt sbtVersion
 - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
-    docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
+    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin;
     docker push ls12styler/scala-sbt ;
   fi
 env:
