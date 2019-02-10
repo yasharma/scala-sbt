@@ -1,7 +1,14 @@
 services:
-  - docker
+- docker
 script:
-  - docker build -t ls12styler/scala-sbt:latest .
+- docker build -t ls12styler/scala-sbt:latest .
 after_success:
-  - docker run --rm ls12styler/scala-sbt scala -version
-  - docker run --rm ls12styler/scala-sbt sbt sbtVersion
+- docker run --rm ls12styler/scala-sbt scala -version
+- docker run --rm ls12styler/scala-sbt sbt sbtVersion
+   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+      docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
+      docker push ls12styler/scala-sbt ;
+    fi
+env:
+  matrix:
+    secure: KwCkyIIif6SMX0jp0WqHYDYo94Am28/9nxSjnmPgopL3p5WCce2QUhKAZyw+Mz4HIZJUP8OfMTNOdD2jLD+5qxamwAfNIo44WZ8LDBEEwkcOwZTwf13cjsQOSS+amEJjElCu/wkXCIGgRDyRmWhcZj+7GpJrGFDR1tzcCx0Qs/jUn/In6RGMXhdLhSEWtjWyg1kKzucXT09rvMyadNt3niaSgyj70AxYKtCC48hnd2YpMOZC6OhdseYGHXlgTNkblIMf79sO+OXTYbGsEz3QrCvOA1oZWNQ+zMv6i4/Fs4ZE4mhk/66WktH/UEKBicvwEHhRdGudIUij3ZKOwNoswkiC/q7zTqE5ELZEN2Sw4DgunwIYUrleqXP1YofYVeqYq/JgWZk4RTvKp6x9xm6LIq5bdZVV0mfhLAEyl1Y4VkyhUIN5C8By9MW3xPD6w/VgiNOBKPTGyovYqpLVwHqk6uyARvw0O0Aa+3DMMVPtZW8jUuKBMfBlDMNq7b8AnRtAZN7aah1gNfvYpYsmersepyKhMimo5HaJ2j4FWWNZ1y0jBh3YqFeOeR8KxZOv8HCwDBhf1alljpQa6Ao2pp2ytX7AkyH0W/PKobDFfgT6zpHH6lFiSdTKbH/rp1djaS5iJ+EmTTOaohyJiwv21NepC4KpYYts6GajLIiVfS1zEyI=
