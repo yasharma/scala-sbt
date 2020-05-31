@@ -29,6 +29,6 @@ RUN \
   ln -s /usr/local/sbt/bin/* /usr/local/bin/ && \
   sbt sbt-version || sbt sbtVersion || true
 
-WORKDIR /local
+WORKDIR /project
 
-ENTRYPOINT ["/usr/local/bin/sbt"]
+ENTRYPOINT ["/usr/project/bin/sbt"]
