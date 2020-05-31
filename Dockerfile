@@ -31,4 +31,4 @@ RUN \
 
 WORKDIR /project
 
-ENTRYPOINT ["/usr/project/bin/sbt"]
+ENTRYPOINT ["/usr/local/bin/sbt"]
